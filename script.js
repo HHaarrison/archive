@@ -1,26 +1,26 @@
 function iniciarContador(id, fechaObjetivoStr) {
   const elemento = document.getElementById(id);
-  const fechaObjetivo = new Date(fechaObjetivoStr).getTime();
+   const fechaObjetivo = new Date(fechaObjetivoStr).getTime();
 
-  function actualizar() {
+function actualizar() {
     const ahora = new Date().getTime();
     const distancia = fechaObjetivo - ahora;
 
-    if (distancia <= 0) {
+      if (distancia <= 0) {
       elemento.innerHTML = "¡Terminado!";
       elemento.classList.add("terminado");
       return;
-    }
+        }
 
     const dias = Math.floor(distancia / (1000 * 60 * 60 * 24));
-    const horas = Math.floor((distancia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const minutos = Math.floor((distancia % (1000 * 60 * 60)) / (1000 * 60));
+      const horas = Math.floor((distancia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+     const minutos = Math.floor((distancia % (1000 * 60 * 60)) / (1000 * 60));
     const segundos = Math.floor((distancia % (1000 * 60)) / 1000);
 
     elemento.innerHTML = `${dias}d ${horas}h ${minutos}m ${segundos}s`;
-  }
+     }
 
-  actualizar();
+   actualizar();
   setInterval(actualizar, 1000);
 }
 
